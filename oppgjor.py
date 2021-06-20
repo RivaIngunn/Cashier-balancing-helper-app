@@ -31,18 +31,17 @@ def totalt_i_kassa(tusen = 0, fem_hundre = 0, to_hundre = 0, ett_hundre = 0, fem
 
     #ind the optimal slution using the least amount of coins for the bag
     for i in kontant_liste:
-        print ('---------------------------------------------')
-        print ('i = ', i)
+
         i_sum = posen_totalt//i
-        print ('heltallsdiisjon ',i_sum)
+
 
         remainder = kassa[str(i)]/i - i_sum
-        print ('remainder' , remainder)
+
 
         if remainder > 0:
-            print ('result was bigger than 0')
+
             posen[str(i)] = i_sum * i
-            print (posen[str(i)])
+
 
             #oppdatere  resterende sum
             posen_totalt -= i_sum * i
@@ -52,7 +51,7 @@ def totalt_i_kassa(tusen = 0, fem_hundre = 0, to_hundre = 0, ett_hundre = 0, fem
 
 
         else:
-            print ('result was smaller than 0')
+
             posen[str(i)] = kassa[str(i)]
 
             #oppdatere  resterende sum
@@ -60,13 +59,14 @@ def totalt_i_kassa(tusen = 0, fem_hundre = 0, to_hundre = 0, ett_hundre = 0, fem
 
             #oppdatere beløp i kassa
             kassa[str(i)] = 0
-    print ('\nPOSEN')
-    print ([posen[str(i)]/i for i in kontant_liste])
-    print(sum(posen.values()))
-    print ('\nKASSA')
-
-    print ([kassa[str(i)]/i for i in kontant_liste])
-    print(sum(kassa.values()))
+    #print ('\nPOSEN')
+    #print ([posen[str(i)]/i for i in kontant_liste])
+    #print(sum(posen.values()))
+    #print ('\nKASSA')
+    #for i in kontant_liste:
+        #print ('antall', i , 'i kassa' , int(kassa[str(i)]/i))
+    #print(sum(kassa.values()))
+    return kontant_liste, kassa, posen
 
 # if kassa != 1500 noe gikk galt
 
